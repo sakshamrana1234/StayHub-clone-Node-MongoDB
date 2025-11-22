@@ -1,0 +1,62 @@
+<%- include('../partials/head') %>
+
+</head>
+<%- include('../partials/header') %>
+<body class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 flex flex-col"></body>
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto mt-8">
+    <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow-lg rounded-3xl sm:p-10 transform hover:scale-[1.01] transition-transform duration-300">
+      <div class="max-w-md mx-auto">
+        <div class="divide-y divide-purple-200">
+          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+            <h2 class="text-3xl font-bold mb-8 text-center text-purple-800 hover:text-purple-900 transition-colors">Add Your Home</h2>
+            <form action="/host/add-home" method="post" class="space-y-6">
+              <div class="relative">
+                <input type="text" name="housename" placeholder="Enter your house name" 
+                  class="peer w-full border-b-2 border-purple-300 text-gray-900 focus:outline-none focus:border-purple-600 placeholder-transparent bg-transparent p-2">
+                <label class="absolute left-0 -top-3.5 text-purple-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm">House Name</label>
+              </div>
+              
+              <div class="relative">
+                <input type="text" name="location" placeholder="Enter your location"
+                  class="peer w-full border-b-2 border-purple-300 text-gray-900 focus:outline-none focus:border-purple-600 placeholder-transparent bg-transparent p-2">
+                <label class="absolute left-0 -top-3.5 text-purple-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm">Location</label>
+              </div>
+
+              <div class="relative">
+                <input type="text" name="Rooms" placeholder="Enter number of rooms"
+                  class="peer w-full border-b-2 border-purple-300 text-gray-900 focus:outline-none focus:border-purple-600 placeholder-transparent bg-transparent p-2">
+                <label class="absolute left-0 -top-3.5 text-purple-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm">Price of Rooms</label>
+              </div>
+
+              <div class="relative">
+                <input type="text" name="Rating" placeholder="Enter rating"
+                  class="peer w-full border-b-2 border-purple-300 text-gray-900 focus:outline-none focus:border-purple-600 placeholder-transparent bg-transparent p-2">
+                <label class="absolute left-0 -top-3.5 text-purple-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm">Rating</label>
+              </div>
+              <div class="relative w-full">
+  <textarea name="description" id="description" placeholder="Describe your home"
+    class="peer w-full border-2 border-purple-300 rounded-md text-gray-900 
+           focus:outline-none focus:border-purple-600 
+           placeholder-transparent bg-transparent p-2"></textarea>
+
+  <label for="description"
+    class="absolute left-2 -top-3.5 text-purple-600 text-sm transition-all
+           peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base 
+           peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm">
+    Description
+  </label>
+</div>
+
+                <div class="relative pt-4"></div>
+                <button type="submit" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg px-6 py-3 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 w-full transform hover:scale-[1.02] transition-all duration-300 font-semibold">
+                  Submit
+                </button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

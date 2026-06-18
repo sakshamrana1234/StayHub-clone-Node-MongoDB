@@ -74,10 +74,9 @@
                 <% } else { %>
                   <div class="image-fallback"><%= (home.houseName || 'S').charAt(0).toUpperCase() %></div>
                 <% } %>
-                <span class="rating-pill">Star <%= home.Rating || 'New' %></span>
+                <span class="rating-pill"><span><%= home.Rating || 'New' %></span><span class="star-icon">★</span></span>
               </div>
               <div class="stay-body">
-                <span class="badge">Private stay</span>
                 <h3><%= home.houseName %></h3>
                 <div class="location"><%= home.location %></div>
                 <p class="description"><%= home.description || 'A refined residence ready for a calmer stay.' %></p>

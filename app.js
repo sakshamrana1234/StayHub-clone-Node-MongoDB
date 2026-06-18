@@ -22,9 +22,9 @@ const {MongoConnect} = require('./utils/databaseUtil')
 app.use(PageNotFound)
 
 
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 MongoConnect(()=>{
 app.listen(PORT,()=>{
-console.log(`Hello budyy here it's running http://localhost:${PORT}`)
+console.log(`Server running on ${PORT}`)
 })
 })

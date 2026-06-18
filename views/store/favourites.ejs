@@ -20,7 +20,7 @@
       <% } else { %>
         <ul class="stay-grid">
           <% favouriteHomes.forEach((home)=>{ %>
-            <li class="stay-card is-visible">
+            <li class="stay-card is-visible" data-detail-url="/homes/<%= home._id %>">
               <div class="stay-media">
                 <% if (home.imageUrls && home.imageUrls.length > 0) { %>
                   <img src="<%= home.imageUrls[0] %>" alt="<%= home.houseName %>">
@@ -39,7 +39,7 @@
                 <p class="description"><%= home.description || 'A refined residence ready for a calmer stay.' %></p>
                 <div class="price-row">
                   <span class="price">Rs <%= home.Price %></span>
-                  <span>per night</span>
+                  <span class="rate-label">Per night</span>
                 </div>
                 <div class="card-actions">
                   <a class="button-soft" href="/homes/<%= home._id %>">Details</a>
@@ -58,6 +58,14 @@
       <% } %>
     </section>
   </main>
+  <script>
+    document.querySelectorAll(".stay-card[data-detail-url]").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button, form, input")) return;
+        window.location.href = card.dataset.detailUrl;
+      });
+    });
+  </script>
   <%- include('../partials/footer') %>
 </body>
 </html>

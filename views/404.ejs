@@ -1,19 +1,21 @@
 <%- include('partials/head') %>
-
-<link rel="stylesheet" href="output.css">
-
 </head>
+<body>
+  <%- include('partials/header') %>
 
-<body class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center">
-  <a href="/" class="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full 
-    transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg backdrop-blur-sm">Go Back Home</a>
-  <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-12 shadow-2xl text-center">
-  <h1 class="text-9xl font-bold text-white animate-bounce mb-4 drop-shadow-2xl">404</h1>
-  <p class="text-2xl text-white mb-8 animate-pulse font-light">Oops! Page not found</p>
-  <div class="text-white/80 mb-8 font-light">The page you're looking for doesn't exist or has been moved.</div>
- 
-  </div>
-  <a href="/host/add-home" class="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full 
-    transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg backdrop-blur-sm">Add new Home</a>
+  <main class="page">
+    <section class="center-wrap">
+      <div class="not-found-card">
+        <span class="eyebrow">404</span>
+        <h1>This key opens no door.</h1>
+        <p>The residence you are looking for may have moved, expired, or never joined the StayHub collection.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a href="/" class="button">Return home</a>
+          <a href="/host/add-home" class="button-soft">List a stay</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include('partials/footer') %>
 </body>
 </html>

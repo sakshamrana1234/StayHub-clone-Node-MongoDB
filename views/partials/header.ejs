@@ -1,17 +1,36 @@
-<header>
-  <nav class="bg-white shadow-lg p-4 mb-6 flex items-center justify-between">
-    <div class="flex items-center space-x-4">
-    <a href="/" class="<%= currentPage==='Home'?' bg-purple-700 ':'bg-purple-500'%> ml-4   text-white px-6 py-2 rounded-full transition duration-300 ease-in-out" >
-      Home
-      </a>
-    <a href="/host/add-home" class="ml-1.5 <%=  currentPage==='HomeAdded'?'bg-purple-700 ':'bg-purple-500' %> text-white px-6 py-2 rounded-full transition duration-300 ease-in-out" >
-      Add New Home
-      </a>
-       </a>
-    <a href="/favourites" class="ml-1.5 <%=  currentPage==='favourite'?'bg-purple-700 ':'bg-purple-500' %> text-white px-6 py-2 rounded-full transition duration-300 ease-in-out" >
-      Favourites
-      </a>
-      
-   
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Primary navigation">
+    <a class="brand" href="/">
+      <span class="brand-mark">SH</span>
+      <span>
+        <strong>StayHub</strong>
+        <small>Curated private stays</small>
+      </span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/" class="<%= currentPage === 'Home' ? 'active' : '' %>">Residences</a>
+      <a href="/bookings" class="<%= currentPage === 'bookings' ? 'active' : '' %>">Bookings</a>
+      <a href="/favourites" class="<%= currentPage === 'favourite' ? 'active' : '' %>">Favourites</a>
+      <a href="/host/add-home" class="<%= currentPage === 'HomeAdded' ? 'active' : '' %>">Host</a>
+    </div>
+
+    <a class="nav-cta" href="/host/add-home">List a stay</a>
   </nav>
-  </header>
+</header>
+<script>
+  (() => {
+    const header = document.querySelector(".site-header");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 12 || currentScrollY < lastScrollY) {
+        header.classList.remove("header-hidden");
+      } else if (currentScrollY > lastScrollY) {
+        header.classList.add("header-hidden");
+      }
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  })();
+</script>

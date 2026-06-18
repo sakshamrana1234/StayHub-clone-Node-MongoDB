@@ -6,20 +6,20 @@
   <main class="page">
     <section class="section">
       <div class="section-title">
-        <span class="eyebrow">Your short list</span>
-        <h1>Favourite residences</h1>
-        <p>Keep your preferred StayHub homes close while you decide where the next quiet escape begins.</p>
+        <span class="eyebrow">Confirmed plans</span>
+        <h1>Booked residences</h1>
+        <p>Your selected stays live here, ready for review before the journey begins.</p>
       </div>
 
-      <% if (!favouriteHomes || favouriteHomes.length === 0) { %>
+      <% if (!bookedHomes || bookedHomes.length === 0) { %>
         <div class="empty-state">
-          <h2>No favourite stays yet.</h2>
-          <p>Save residences from the collection and they will appear here.</p>
+          <h2>No bookings yet.</h2>
+          <p>Book a residence from the collection and it will appear here.</p>
           <a class="button" href="/">Browse stays</a>
         </div>
       <% } else { %>
         <ul class="stay-grid">
-          <% favouriteHomes.forEach((home)=>{ %>
+          <% bookedHomes.forEach((home)=>{ %>
             <li class="stay-card is-visible">
               <div class="stay-media">
                 <% if (home.imageUrls && home.imageUrls.length > 0) { %>
@@ -30,10 +30,10 @@
                 <% } else { %>
                   <div class="image-fallback"><%= (home.houseName || 'S').charAt(0).toUpperCase() %></div>
                 <% } %>
-                <span class="rating-pill">Star <%= home.Rating || 'New' %></span>
+                <span class="rating-pill">Booked</span>
               </div>
               <div class="stay-body">
-                <span class="badge">Saved</span>
+                <span class="badge">Reserved</span>
                 <h3><%= home.houseName %></h3>
                 <div class="location"><%= home.location %></div>
                 <p class="description"><%= home.description || 'A refined residence ready for a calmer stay.' %></p>
@@ -43,12 +43,8 @@
                 </div>
                 <div class="card-actions">
                   <a class="button-soft" href="/homes/<%= home._id %>">Details</a>
-                  <form action="/bookings" method="POST">
-                    <input type="hidden" name="homeId" value="<%= home._id %>">
-                    <button type="submit" class="button">Book</button>
-                  </form>
-                  <form action="/favourites/<%= home._id %>/delete" method="POST">
-                    <button type="submit" class="button-danger">Remove</button>
+                  <form action="/bookings/<%= home._id %>/delete" method="POST">
+                    <button type="submit" class="button-danger">Cancel</button>
                   </form>
                 </div>
               </div>

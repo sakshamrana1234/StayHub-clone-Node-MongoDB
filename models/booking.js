@@ -1,6 +1,6 @@
 const { getDb } = require("../utils/databaseUtil");
 
-module.exports = class Favourite {
+module.exports = class Booking {
   constructor(houseId) {
     this.houseId = houseId;
   }
@@ -8,15 +8,15 @@ module.exports = class Favourite {
   save() {
     const db = getDb();
     return db.query(
-      "INSERT INTO favourites (home_id) VALUES ($1) ON CONFLICT (home_id) DO NOTHING",
+      "INSERT INTO bookings (home_id) VALUES ($1) ON CONFLICT (home_id) DO NOTHING",
       [this.houseId]
     );
   }
 
-  static getFavourites() {
+  static getBookings() {
     const db = getDb();
     return db
-      .query("SELECT home_id FROM favourites ORDER BY created_at DESC")
+      .query("SELECT home_id FROM bookings ORDER BY created_at DESC")
       .then((result) =>
         result.rows.map((row) => ({
           houseId: row.home_id,
@@ -26,6 +26,6 @@ module.exports = class Favourite {
 
   static deleteById(delHomeId) {
     const db = getDb();
-    return db.query("DELETE FROM favourites WHERE home_id = $1", [delHomeId]);
+    return db.query("DELETE FROM bookings WHERE home_id = $1", [delHomeId]);
   }
 };
